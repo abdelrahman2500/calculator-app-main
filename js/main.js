@@ -108,7 +108,7 @@ function addDot(e){
 
 function del(){
     let last = String(arr[arr.length-1]).slice(0 ,-1)
-    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 ? arr[arr.length-1] = 0 : arr[arr.length-1] = last
+    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 ? arr.pop() : arr[arr.length-1] = last
     display.innerHTML = arr.length == 0 ? 0 : arr.join("")
 }
 
@@ -122,16 +122,24 @@ function addToArr(e){
     // arr.push(e.innerHTML)
     if(arr.length>0){
         if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
-            arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
-            console.log(arr)
-            display.innerHTML = arr.join("")
-        } else {
-            if(e.innerHTML == "0"){
-            } else {
+            if(String(arr[arr.length-1]) == "0"){
+                arr.pop()
                 arr.push(e.innerHTML)
                 display.innerHTML = arr.join("")
-                
+            } else {
+                arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
+                // console.log(arr)
+                display.innerHTML = arr.join("")
+
             }
+        } else {
+            // if(e.innerHTML == "0"){
+                
+            // } else {
+                
+            // }
+            arr.push(e.innerHTML)
+            display.innerHTML = arr.join("")
         }
     } else {
         if(e.innerHTML == "0"){
