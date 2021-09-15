@@ -58,7 +58,7 @@ function addDot(e){
 }
 
 function del(){
-    arr.length == 0 ? "" : arr.shift()
+    arr.length == 0 ? "" : arr.pop()
     display.innerHTML = arr.length == 0 ? 0 : arr.join("")
 }
 
