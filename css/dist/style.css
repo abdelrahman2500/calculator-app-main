@@ -1,0 +1,34 @@
+.theme-one {
+  background-color: #3B4664;
+  color: #FFF;
+}
+.theme-one .display {
+  background-color: #181F32;
+}
+.theme-one .btns {
+  background-color: #252D44;
+}
+.theme-one .btns .bb {
+  background-color: #EAE3DB;
+}
+.theme-one .btns .del, .theme-one .btns .reset {
+  background-color: #647299;
+  color: #FFF;
+}
+
+.calc .inner {
+  width: 460px;
+}
+.calc .inner .display {
+  font-size: 26px;
+  font-weight: bold;
+  min-height: 72px;
+  border-radius: 10px;
+}
+.calc .inner .btns {
+  border-radius: 10px;
+}
+.calc .inner .btns .bb {
+  font-size: 26px;
+  font-weight: bold;
+}

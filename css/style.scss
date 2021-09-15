@@ -1,0 +1,38 @@
+.theme-one{
+    background-color: #3B4664;
+    color: #FFF;
+    .display{
+        background-color: #181F32;
+    }
+    .btns{
+        background-color: #252D44;
+        .bb{
+            background-color: #EAE3DB;
+        }
+        .del,.reset{
+            background-color: #647299;
+            color: #FFF;
+        }
+    }
+}
+.theme-two{}
+.theme-three{}
+
+.calc{
+    .inner{
+        width: 460px;
+        .display{
+            font-size: 26px;
+            font-weight: bold;
+            min-height: 72px;
+            border-radius: 10px;
+        }
+        .btns{
+            border-radius: 10px;
+            .bb{
+                font-size: 26px;
+                font-weight: bold;
+            }
+        }
+    }
+}
