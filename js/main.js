@@ -10,13 +10,34 @@ let range = document.querySelector(".form-range")
 display.innerHTML = 0
 
 function sum(){
-    if(arr[arr.length-1] == "+" || arr[arr.length-1] == "/" || arr[arr.length-1] == "*" || arr[arr.length-1] == "-"|| arr[arr.length-1] == "."){
-        arr.pop()
-        display.innerHTML = arr.length == 0 ? 0 : eval(arr.join(""))
-        arr = [Number(display.innerHTML)]
-    } else {
-        display.innerHTML = arr.length == 0 ? 0 : eval(arr.join(""))
-        arr = [Number(display.innerHTML)]
+    arr.map(el => {
+        if(String(el)[0] == "0" && String(el)[1] == "0"){
+            String(el)[0] = ""
+            sum()
+        } else {
+            console.log(arr)
+        }
+        console.log(String(el)[1])
+        
+    })
+    for(let i =0; i<= arr.length; i++){
+        if(i == arr.length-1){
+            if(arr[arr.length-1] == "+" || arr[arr.length-1] == "/" || arr[arr.length-1] == "*" || arr[arr.length-1] == "-"|| arr[arr.length-1] == "."){
+                arr.pop()
+                display.innerHTML = arr.length == 0 ? 0 : (arr.join(""))
+                // arr = [Number(display.innerHTML)]
+                sum();
+            }else if(arr[arr.length-1] == "."){
+                arr.pop()
+                display.innerHTML = arr.length == 0 ? 0 : (arr.join(""))
+                // arr = [Number(display.innerHTML)]
+                sum();
+            } else {
+                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join(""))
+                arr = [Number(display.innerHTML)]
+                break;
+            }
+        }
     }
 }
 
@@ -33,28 +54,57 @@ function addOpp(e){
             arr.push(e.innerHTML)
             display.innerHTML = arr.join("")
         }
-    } else {
+    } 
+    // else if (String(arr[arr.length-1]).indexOf(".") == -1){
+    //     arr[arr.length-1] = arr[arr.length-1] + "0"
+        
+    //     arr.push(e.innerHTML)
+    //     display.innerHTML = arr.join("")
+    //     console.log(arr)
+    // }else if(arr[arr.length-1] = "."){
+    //     arr.pop()
+    //     arr[arr.length-1] = e.innerHTML
+    //     display.innerHTML = arr.join("")
+    // }
+     else {
         arr[arr.length-1] = e.innerHTML
         display.innerHTML = arr.join("")
     }
 }
 
 function addDot(e){
-    let valid = true
-    arr.map(el => {
-        if(valid == true) {
-            el == e.innerHTML ? valid = false : ""
-            el.toString().indexOf(".") != -1 ? valid = false : ""
+    if(String(arr[arr.length-1]).indexOf(".") != -1){
+
+    } else {
+        if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
+
+            arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
+            console.log(arr)
+            display.innerHTML = arr.join("")
+        } else {
+            
+            arr.push(e.innerHTML)
+            display.innerHTML = arr.join("")
         }
-    })
-    if(valid){
-        if(arr.length == 0){
-            arr.push("0")
-        }
-        
-        arr.push(e.innerHTML)
-        display.innerHTML = arr.join("")
-    }    
+    }
+
+
+    // let valid = true
+    // arr.map(el => {
+    //     if(valid == true) {
+    //         el == e.innerHTML ? valid = false : ""
+    //         el.toString().indexOf(".") != -1 ? valid = false : ""
+    //     }
+    // })
+    // if(valid){
+    //     if(arr.length == 0){
+    //         arr.push("0")
+    //     }
+    //     arr[arr.length-1] = arr[arr.length-1]+ "."
+    //     // arr.push(e.innerHTML)
+    //     console.log(arr)
+    //     display.innerHTML = arr.join("")
+    // }    
 }
 
 function del(){
@@ -69,9 +119,29 @@ function reset(){
 
 function addToArr(e){
     // console.log(e.innerHTML)
-    arr.push(e.innerHTML)
-    // console.log(arr)
-    display.innerHTML = arr.join("")
+    // arr.push(e.innerHTML)
+    if(arr.length>0){
+        if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
+            arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
+            console.log(arr)
+            display.innerHTML = arr.join("")
+        } else {
+            if(e.innerHTML == "0"){
+            } else {
+                arr.push(e.innerHTML)
+                display.innerHTML = arr.join("")
+                
+            }
+        }
+    } else {
+        if(e.innerHTML == "0"){
+
+        } else {
+            arr.push(e.innerHTML)
+            display.innerHTML = arr.join("")
+            
+        }
+    }
 }
 
 // num.addEventListener("click", addToArr(this))
@@ -105,3 +175,13 @@ range.addEventListener("change", function(e){
     }
     // calc.classList.
 })
+
+
+// display.addEventListener("change", function(){
+//     let aa = display.innerHTML
+//     display.innerHTML != aa ? "true" : "ddz"
+//     arr.map(el => {
+//         String(el).indexOf("0") == 0 && String(el).indexOf("0") == 1 ? String(el).indexOf("0") = "" : ""
+//     })
+//     console.log(arr, "ok")
+// })
