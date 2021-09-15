@@ -76,7 +76,7 @@
         .form-range{
             margin-top: 9px;
         }
-        width: 460px;
+        max-width: 460px;
         .display{
             font-size: 26px;
             font-weight: bold;
@@ -88,6 +88,9 @@
             .bb{
                 font-size: 26px;
                 font-weight: bold;
+                @media (max-width: 576px) {
+                        font-size: 16px;
+                }
             }
         }
     }

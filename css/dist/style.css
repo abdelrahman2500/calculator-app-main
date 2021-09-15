@@ -73,7 +73,7 @@
 }
 
 .calc .inner {
-  width: 460px;
+  max-width: 460px;
 }
 .calc .inner .form-range {
   margin-top: 9px;
@@ -90,4 +90,9 @@
 .calc .inner .btns .bb {
   font-size: 26px;
   font-weight: bold;
+}
+@media (max-width: 576px) {
+  .calc .inner .btns .bb {
+    font-size: 16px;
+  }
 }
