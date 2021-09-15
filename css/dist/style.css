@@ -10,14 +10,73 @@
 }
 .theme-one .btns .bb {
   background-color: #EAE3DB;
+  color: #181F32;
+  border-bottom: 4px solid #9c9c9c;
 }
 .theme-one .btns .del, .theme-one .btns .reset {
   background-color: #647299;
   color: #FFF;
+  border-bottom: 4px solid #45536b;
+}
+.theme-one .btns .equal {
+  background-color: #dc3545;
+  border-bottom: 4px solid #b50c1c;
+}
+
+.theme-two {
+  background-color: #E6E6E6;
+  color: #181F32;
+}
+.theme-two .display {
+  background-color: #EEEEEE;
+}
+.theme-two .btns {
+  background-color: #D3CDCD;
+}
+.theme-two .btns .bb {
+  background-color: #E5E4E0;
+  color: #181F32;
+  border-bottom: 4px solid #9c9c9c;
+}
+.theme-two .btns .del, .theme-two .btns .reset {
+  background-color: #378189;
+  color: #FFF;
+  border-bottom: 4px solid #1B5F66;
+}
+.theme-two .btns .equal {
+  background-color: #dc3545;
+  border-bottom: 4px solid #b50c1c;
+}
+
+.theme-three {
+  background-color: #17062A;
+  color: #FFE53F;
+}
+.theme-three .display {
+  background-color: #1E0836;
+}
+.theme-three .btns {
+  background-color: #1E0836;
+}
+.theme-three .btns .bb {
+  background-color: #331B4D;
+  color: #FFE53F;
+  border-bottom: 4px solid #6F2084;
+}
+.theme-three .btns .del, .theme-three .btns .reset {
+  background-color: #56077C;
+  color: #FFF;
+}
+.theme-three .btns .equal {
+  background-color: #00DECF;
+  border-bottom: 4px solid #75F4EF;
 }
 
 .calc .inner {
   width: 460px;
+}
+.calc .inner .form-range {
+  margin-top: 9px;
 }
 .calc .inner .display {
   font-size: 26px;

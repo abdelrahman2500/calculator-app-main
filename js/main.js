@@ -2,9 +2,10 @@ let arr = []
 let numbers = document.querySelectorAll(".num")
 let operators = document.querySelectorAll(".op")
 
+let calc = document.querySelector(".calc")
 let display = document.querySelector(".display")
 let dot = document.querySelector(".dot")
-// let dele = document.querySelector(".del")
+let range = document.querySelector(".form-range")
 
 display.innerHTML = 0
 
@@ -38,9 +39,6 @@ function addOpp(e){
     }
 }
 
-dot.addEventListener("click" , () => addDot(dot))
-
-
 function addDot(e){
     let valid = true
     arr.map(el => {
@@ -53,13 +51,11 @@ function addDot(e){
         if(arr.length == 0){
             arr.push("0")
         }
-
+        
         arr.push(e.innerHTML)
         display.innerHTML = arr.join("")
-    }
-    
+    }    
 }
-
 
 function del(){
     arr.length == 0 ? "" : arr.shift()
@@ -82,3 +78,30 @@ function addToArr(e){
 
 numbers.forEach(num => num.addEventListener("click", () => addToArr(num)))
 operators.forEach(op => op.addEventListener("click", () => addOpp(op)))
+dot.addEventListener("click" , () => addDot(dot))
+
+// change theme
+
+range.addEventListener("change", function(e){
+    // console.log(e.target.value)
+    switch (e.target.value) {
+        case "0":
+            calc.classList.add("theme-one")
+            calc.classList.remove("theme-two")
+            calc.classList.remove("theme-three")
+            break;
+        case "1":
+            calc.classList.remove("theme-one")
+            calc.classList.add("theme-two")
+            calc.classList.remove("theme-three")
+            break;
+        case "2":
+            calc.classList.remove("theme-one")
+            calc.classList.remove("theme-two")
+            calc.classList.add("theme-three")
+            break;
+        default:
+            break;
+    }
+    // calc.classList.
+})
