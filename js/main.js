@@ -17,7 +17,6 @@ function sum(){
         } else {
             console.log(arr)
         }
-        console.log(String(el)[1])
         
     })
     for(let i =0; i<= arr.length; i++){
@@ -108,7 +107,8 @@ function addDot(e){
 }
 
 function del(){
-    arr.length == 0 ? "" : arr.pop()
+    let last = String(arr[arr.length-1]).slice(0 ,-1)
+    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 ? arr[arr.length-1] = 0 : arr[arr.length-1] = last
     display.innerHTML = arr.length == 0 ? 0 : arr.join("")
 }
 
