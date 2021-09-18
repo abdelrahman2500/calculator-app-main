@@ -19,7 +19,10 @@ function sum(){
         }
         
     })
-    for(let i =0; i<= arr.length; i++){
+    for(let i =0; i< arr.length; i++){
+        if (arr[i] == "."){
+            arr[i] = "0"
+        }
         if(i == arr.length-1){
             if(arr[arr.length-1] == "+" || arr[arr.length-1] == "/" || arr[arr.length-1] == "*" || arr[arr.length-1] == "-"){
                 arr.pop()
