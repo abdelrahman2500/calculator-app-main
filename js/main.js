@@ -223,7 +223,7 @@ window.addEventListener("keydown", function(e){
         s.innerHTML = e.key
         console.log(s.innerHTML)
         addToArr(s)
-    } else if(e.keyCode == 106 || e.keyCode == 107 || e.keyCode == 109 || e.keyCode == 111){
+    } else if(e.keyCode == 106 || e.keyCode == 107 || e.keyCode == 109 || e.keyCode == 111 ){
         let s = document.createElement("p")
         s.innerHTML = e.key
         console.log(s.innerHTML)
