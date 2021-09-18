@@ -32,7 +32,7 @@ function sum(){
                 // arr = [Number(display.innerHTML)]
                 sum();
             } else {
-                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join("")) == Infinity || isNaN(eval(arr.join(""))) ? "Error" : eval(arr.join(""))
+                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join("")) == Infinity || eval(arr.join("")) == -Infinity || isNaN(eval(arr.join(""))) ? "Error" : eval(arr.join(""))
                 isNaN(arr[arr.length-1]) ? arr[0] = [0] : arr = [Number(display.innerHTML)]
                 console.log(arr)
                 console.log(display.innerHTML)
@@ -44,8 +44,25 @@ function sum(){
 
 function addOpp(e){
     if(display.innerHTML == "Error"){
-        arr.push(e.innerHTML)
+        arr =[]
+        // arr.push(0)
         display.innerHTML = arr.join("")
+        if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
+            if(arr.length == 0){
+                if( e.innerHTML == "*" || e.innerHTML == "/") {
+                } else {
+                    arr.push(e.innerHTML)
+                    display.innerHTML = arr.join("")
+                }
+            } else {
+                arr.push(e.innerHTML)
+                display.innerHTML = arr.join("")
+            }
+        } 
+        else {
+           arr[arr.length-1] = e.innerHTML
+           display.innerHTML = arr.join("")
+       }
     } else {
         if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
             if(arr.length == 0){
@@ -191,11 +208,35 @@ range.addEventListener("change", function(e){
 })
 
 
-// display.addEventListener("change", function(){
-//     let aa = display.innerHTML
-//     display.innerHTML != aa ? "true" : "ddz"
-//     arr.map(el => {
-//         String(el).indexOf("0") == 0 && String(el).indexOf("0") == 1 ? String(el).indexOf("0") = "" : ""
-//     })
-//     console.log(arr, "ok")
-// })
+
+
+window.addEventListener("keydown", function(e){
+    if(e.keyCode == 110 ){
+        let s = document.createElement("p")
+        s.innerHTML = e.key
+        console.log(s.innerHTML)
+        addDot(s)
+    } else if (e.keyCode == 48 || e.keyCode == 49 || e.keyCode == 50 || e.keyCode == 51 || e.keyCode == 52 || e.keyCode == 53 || 
+        e.keyCode == 54 || e.keyCode == 55 || e.keyCode == 56 || e.keyCode == 57 || e.keyCode == 96 || e.keyCode == 97 || e.keyCode == 98 ||
+        e.keyCode == 99 || e.keyCode == 100 || e.keyCode == 101 || e.keyCode == 102 || e.keyCode == 103 || e.keyCode == 104 || e.keyCode == 105 ){
+        let s = document.createElement("p")
+        s.innerHTML = e.key
+        console.log(s.innerHTML)
+        addToArr(s)
+    } else if(e.keyCode == 106 || e.keyCode == 107 || e.keyCode == 109 || e.keyCode == 111){
+        let s = document.createElement("p")
+        s.innerHTML = e.key
+        console.log(s.innerHTML)
+        addOpp(s)
+    } else if(e.keyCode == 187 || e.keyCode == 13){
+        let s = document.createElement("p")
+        s.innerHTML = e.key
+        console.log(s.innerHTML)
+        sum()
+    } else if(e.keyCode == 8){
+        let s = document.createElement("p")
+        s.innerHTML = e.key
+        console.log(s.innerHTML)
+        del()
+    }
+})
