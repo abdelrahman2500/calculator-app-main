@@ -32,7 +32,7 @@ function sum(){
                 // arr = [Number(display.innerHTML)]
                 sum();
             } else {
-                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join(""))
+                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join("")) == Infinity ? "can't divide by zero" : eval(arr.join(""))
                 arr = [Number(display.innerHTML)]
                 break;
             }
@@ -108,7 +108,7 @@ function addDot(e){
 
 function del(){
     let last = String(arr[arr.length-1]).slice(0 ,-1)
-    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 || arr[arr.length-1] == Infinity ? arr.pop() : arr[arr.length-1] = last
+    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 || isNaN(arr[arr.length-1]) == true ? arr.pop() : arr[arr.length-1] = last
     display.innerHTML = arr.length == 0 ? 0 : arr.join("")
 }
 
