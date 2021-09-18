@@ -15,13 +15,13 @@ function sum(){
             String(el)[0] = ""
             sum()
         } else {
-            console.log(arr)
+            // console.log(arr)
         }
         
     })
     for(let i =0; i<= arr.length; i++){
         if(i == arr.length-1){
-            if(arr[arr.length-1] == "+" || arr[arr.length-1] == "/" || arr[arr.length-1] == "*" || arr[arr.length-1] == "-"|| arr[arr.length-1] == "."){
+            if(arr[arr.length-1] == "+" || arr[arr.length-1] == "/" || arr[arr.length-1] == "*" || arr[arr.length-1] == "-"){
                 arr.pop()
                 display.innerHTML = arr.length == 0 ? 0 : (arr.join(""))
                 // arr = [Number(display.innerHTML)]
@@ -32,8 +32,10 @@ function sum(){
                 // arr = [Number(display.innerHTML)]
                 sum();
             } else {
-                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join("")) == Infinity ? "can't divide by zero" : eval(arr.join(""))
-                arr = [Number(display.innerHTML)]
+                display.innerHTML = arr.length == 0 ? 0 : eval(arr.join("")) == Infinity || isNaN(eval(arr.join(""))) ? "Error" : eval(arr.join(""))
+                isNaN(arr[arr.length-1]) ? arr[0] = [0] : arr = [Number(display.innerHTML)]
+                console.log(arr)
+                console.log(display.innerHTML)
                 break;
             }
         }
@@ -41,19 +43,28 @@ function sum(){
 }
 
 function addOpp(e){
-    if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
-        if(arr.length == 0){
-            if( e.innerHTML == "*" || e.innerHTML == "/") {
-
+    if(display.innerHTML == "Error"){
+        arr.push(e.innerHTML)
+        display.innerHTML = arr.join("")
+    } else {
+        if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
+            if(arr.length == 0){
+                if( e.innerHTML == "*" || e.innerHTML == "/") {
+    
+                } else {
+                    arr.push(e.innerHTML)
+                    display.innerHTML = arr.join("")
+                }
             } else {
                 arr.push(e.innerHTML)
                 display.innerHTML = arr.join("")
             }
-        } else {
-            arr.push(e.innerHTML)
-            display.innerHTML = arr.join("")
-        }
-    } 
+        } 
+        else {
+           arr[arr.length-1] = e.innerHTML
+           display.innerHTML = arr.join("")
+       }
+    }
     // else if (String(arr[arr.length-1]).indexOf(".") == -1){
     //     arr[arr.length-1] = arr[arr.length-1] + "0"
         
@@ -65,45 +76,34 @@ function addOpp(e){
     //     arr[arr.length-1] = e.innerHTML
     //     display.innerHTML = arr.join("")
     // }
-     else {
-        arr[arr.length-1] = e.innerHTML
-        display.innerHTML = arr.join("")
-    }
 }
 
 function addDot(e){
-    if(String(arr[arr.length-1]).indexOf(".") != -1){
+    if(display.innerHTML == "Error"){
+        arr = []
+        arr.push(e.innerHTML)
+        display.innerHTML = arr.join("")
+    } else { 
 
-    } else {
-        if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
-
-            arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
-            console.log(arr)
-            display.innerHTML = arr.join("")
+        if(String(arr[arr.length-1]).indexOf(".") != -1){
+    
         } else {
-            
-            arr.push(e.innerHTML)
-            display.innerHTML = arr.join("")
+            if(arr.length == 0) {
+                arr.push(e.innerHTML)
+                display.innerHTML = arr.join("")
+                // console.log(arr)
+            } else {
+                if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
+                    arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
+                    console.log(arr)
+                    display.innerHTML = arr.join("")
+                } else {
+                    arr.push(e.innerHTML)
+                    display.innerHTML = arr.join("")
+                }
+            }
         }
-    }
-
-
-    // let valid = true
-    // arr.map(el => {
-    //     if(valid == true) {
-    //         el == e.innerHTML ? valid = false : ""
-    //         el.toString().indexOf(".") != -1 ? valid = false : ""
-    //     }
-    // })
-    // if(valid){
-    //     if(arr.length == 0){
-    //         arr.push("0")
-    //     }
-    //     arr[arr.length-1] = arr[arr.length-1]+ "."
-    //     // arr.push(e.innerHTML)
-    //     console.log(arr)
-    //     display.innerHTML = arr.join("")
-    // }    
+    }   
 }
 
 function del(){
@@ -120,34 +120,40 @@ function reset(){
 function addToArr(e){
     // console.log(e.innerHTML)
     // arr.push(e.innerHTML)
-    if(arr.length>0){
-        if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
-            if(String(arr[arr.length-1]) == "0"){
-                arr.pop()
+    if(display.innerHTML == "Error"){
+        arr = []
+        arr.push(e.innerHTML)
+        display.innerHTML = arr.join("")
+    } else {
+        if(arr.length>0){
+            if(arr[arr.length-1] != "+" && arr[arr.length-1] != "/" && arr[arr.length-1] != "*" && arr[arr.length-1] != "-"){
+                if(String(arr[arr.length-1]) == "0"){
+                    arr.pop()
+                    arr.push(e.innerHTML)
+                    display.innerHTML = arr.join("")
+                } else {
+                    arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
+                    // console.log(arr)
+                    display.innerHTML = arr.join("")
+    
+                }
+            } else {
+                // if(e.innerHTML == "0"){
+                    
+                // } else {
+                    
+                // }
                 arr.push(e.innerHTML)
                 display.innerHTML = arr.join("")
-            } else {
-                arr[arr.length-1] = arr[arr.length-1] + e.innerHTML 
-                // console.log(arr)
-                display.innerHTML = arr.join("")
-
             }
         } else {
-            // if(e.innerHTML == "0"){
+            if(e.innerHTML == "0"){
+    
+            } else {
+                arr.push(e.innerHTML)
+                display.innerHTML = arr.join("")
                 
-            // } else {
-                
-            // }
-            arr.push(e.innerHTML)
-            display.innerHTML = arr.join("")
-        }
-    } else {
-        if(e.innerHTML == "0"){
-
-        } else {
-            arr.push(e.innerHTML)
-            display.innerHTML = arr.join("")
-            
+            }
         }
     }
 }

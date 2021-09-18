@@ -81,7 +81,9 @@
             font-size: 26px;
             font-weight: bold;
             min-height: 72px;
-            border-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            overflow-x: auto;
         }
         .btns{
             border-radius: 10px;
@@ -91,7 +93,31 @@
                 @media (max-width: 576px) {
                         font-size: 16px;
                 }
+                &:hover{
+                    opacity: .8;
+                }
             }
         }
     }
 }
+
+::-webkit-scrollbar {
+    height: 5px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #242C43; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #647299; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cccac7; 
+  }

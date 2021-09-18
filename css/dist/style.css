@@ -82,7 +82,9 @@
   font-size: 26px;
   font-weight: bold;
   min-height: 72px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow-x: auto;
 }
 .calc .inner .btns {
   border-radius: 10px;
@@ -95,4 +97,28 @@
   .calc .inner .btns .bb {
     font-size: 16px;
   }
+}
+.calc .inner .btns .bb:hover {
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #242C43;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #647299;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cccac7;
 }
