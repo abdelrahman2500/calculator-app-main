@@ -108,7 +108,7 @@ function addDot(e){
 
 function del(){
     let last = String(arr[arr.length-1]).slice(0 ,-1)
-    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 || arr[arr.length-1] == Infinity? arr.pop() : arr[arr.length-1] = last
+    arr.length == 0 ? "" : String(arr[arr.length-1]).length == 1 || arr[arr.length-1] == Infinity ? arr.pop() : arr[arr.length-1] = last
     display.innerHTML = arr.length == 0 ? 0 : arr.join("")
 }
 
